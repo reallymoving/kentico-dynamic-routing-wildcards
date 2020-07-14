@@ -6,7 +6,7 @@
 		<title>$title$</title>
 		<authors>$author$</authors>
 		<owners>$author$</owners>
-		<projectUrl>https://github.com/taylorjrsmith/kentico-dynamic-routing-wildcards</projectUrl>
+		<projectUrl>https://github.com/reallymoving/kentico-dynamic-routing-wildcards</projectUrl>
 		<iconUrl>https://raw.githubusercontent.com/Kentico/devnet.kentico.com/master/marketplace/assets/generic-integration.png</iconUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>$description$</description>
