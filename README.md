@@ -20,3 +20,9 @@ WildcardRoutingInitialiser.AddWildcards();
 #### All Done!  🎉
 You should now be able to just add url wildcards in your Kentico admin. 
 **NOTE:** Remember to always start a new wildcard with /{urlslug}/ 
+
+### Reporting Issues
+Please submit any issues to the issues list on this repository. We will try to look at these as soon as we can. If there are any questions on how to use this you can email taylor@reallymoving.com
+
+### Compatibility
+This extensions supports Kentico 12.0.29 for MVC and will also require the installation of Kentico.DynamicRouting.MVC before use.
