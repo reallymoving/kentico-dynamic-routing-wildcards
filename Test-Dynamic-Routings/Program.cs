@@ -12,8 +12,7 @@ namespace Test_Dynamic_Routings
     {
         static void Main(string[] args)
         {
-            GetUrlMatch("/wills-and-probate/help-and-advice/bob", "-1");
-
+            GetUrlMatch("/wills-and-probate/help-and-advice/wills", "-1");
         }
 
         private static MatchedUrl GetUrlMatch(string relativeUrl, string cultureCode, DataTable possibleUrls = null)
@@ -23,10 +22,15 @@ namespace Test_Dynamic_Routings
             PossibleUrlPatterns.Columns.Add("UrlSlugNodeId", typeof(int));
             PossibleUrlPatterns.Columns.Add("ClassName", typeof(string));
             DataRow row1 = PossibleUrlPatterns.NewRow();
-            row1["possibleUrl"] = "/wills-and-probate/help-and-advice/{item1?}";
+            DataRow row2 = PossibleUrlPatterns.NewRow();
+            row1["possibleUrl"] = "/wills-and-probate/help-and-advice/{item1}/{item2?}";
             row1["UrlSlugNodeId"] = 443;
             row1["ClassName"] = "TheLawSuperStore.HelpAndAdviceHub";
+            row2["possibleUrl"] = "/wills-and-probate/help-and-advice/{item1}";
+            row2["UrlSlugNodeId"] = 443;
+            row2["ClassName"] = "TheLawSuperStore.HelpAndAdviceHub";
             PossibleUrlPatterns.Rows.Add(row1);
+            PossibleUrlPatterns.Rows.Add(row2);
             var urlMatchup = new UrlByWildcardCollection();
             if (PossibleUrlPatterns.Rows.Count > 0)
             {

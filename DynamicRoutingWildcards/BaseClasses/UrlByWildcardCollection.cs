@@ -9,7 +9,7 @@ namespace DynamicRouting.Kentico.Wildcards.BaseClasses
 {
     public class UrlByWildcardCollection
     {
-        private static Regex WildcardFinder = new Regex("{(?<ParamName>[a-zA-Z0-9À-ž]*)}");
+        private static Regex WildcardFinder = new Regex("{(?<ParamName>[a-zA-Z0-9À-ž\\?]*)}");
 
         public UrlByWildcardCollection()
         {
@@ -87,22 +87,18 @@ namespace DynamicRouting.Kentico.Wildcards.BaseClasses
             if (pathsToCut == 0)
                 return urlToMatch;
             var match = UrlByLengthCollection.PathMatcher.Match(urlToMatch);
-
             var captures = match.Groups["Path"].Captures.Cast<Capture>().Reverse().ToList();
-
             for (var x = 0; x < pathsToCut; x++)
             {
-                var captureValue = captures[x].Value.Trim('/');
-
+                var capture = captures[x];
+                var captureValue = capture.Value.Trim('/');
                 if (string.IsNullOrEmpty(captureValue))
                 {
                     pathsToCut++; //Nothing was cut, probably due to an odd group match. So just increase to get the first actual path.
                     continue;
                 }
-
-                urlToMatch = urlToMatch.Replace(captureValue, "");
+                urlToMatch = urlToMatch.Substring(0, capture.Index) + urlToMatch.Substring(capture.Index + capture.Value.Length);
             }
-
             return urlToMatch.Trim('/');
         }
     }
