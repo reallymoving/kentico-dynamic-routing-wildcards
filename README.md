@@ -21,6 +21,9 @@ WildcardRoutingInitialiser.AddWildcards();
 You should now be able to just add url wildcards in your Kentico admin. 
 **NOTE:** Remember to always start a new wildcard with /{urlslug}/ 
 
+# Support for Kentico Xperience 13 (Core)
+Dynamic Routing was replaced with Kentico's Page Builder Routing in Kentico Xperience 13.  Please use the [XperienceCommunity.WildcardUrls]( https://github.com/KenticoDevTrev/WildcardUrls) when upgrading to achieve the same functionality.
+
 ### Reporting Issues, Contributions and Licence
 Please submit any issues to the issues list on this repository. We will try to look at these as soon as we can. If there are any questions on how to use this you can email taylor@reallymoving.com.
 
